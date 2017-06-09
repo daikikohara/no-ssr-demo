@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
-const Home = () => (
+const Home = (props) => (
   <div>
     <Helmet
       title="Home"
@@ -18,6 +18,7 @@ const Home = () => (
       ]}
     />
     <h2>Home</h2>
+    <span>{props.name}</span>
   </div>
 )
 

@@ -7,10 +7,12 @@ import {
 } from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
-import {
-  Home,
-  About
-} from './containers';
+import AsyncContainer from './containers/AsyncContainer';
+
+const Home = AsyncContainer(() => import('./containers/Home')
+  .then(module => module.default), { name: 'This is our Home page' });
+const About = AsyncContainer(() => import('./containers/About')
+  .then(module => module.default), { name: 'This is our About page' });
 
 class App extends Component {
   render() {
@@ -21,7 +23,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <p className="App-intro">
+        <div className="App-intro">
           <Router>
             <div>
               <ul>
@@ -33,7 +35,7 @@ class App extends Component {
               <Route path="/about" component={About}/>
             </div>
           </Router>
-        </p>
+        </div>
       </div>
     );
   }

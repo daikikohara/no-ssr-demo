@@ -1,7 +1,8 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import moment from 'moment';
 
-const About = () => (
+const About = (props) => (
   <div>
     <Helmet
       title="About"
@@ -18,6 +19,8 @@ const About = () => (
       ]}
     />
     <h2>About</h2>
+    <span>{props.name}</span>
+    <span>{moment().format()}</span>
   </div>
 )
 
